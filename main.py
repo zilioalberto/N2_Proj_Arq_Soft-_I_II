@@ -4,6 +4,7 @@ import redis
 app = Flask(__name__)
 cache = redis.Redis()
 
+
 def calcular_fatorial(numero):
     if numero < 0:
         return "Número deve ser não-negativo."
