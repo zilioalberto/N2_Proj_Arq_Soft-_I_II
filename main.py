@@ -1,9 +1,8 @@
 from flask import Flask, jsonify
 import redis
-from waitress import serve
+
 app = Flask(__name__)
 cache = redis.Redis()
-
 
 def calcular_fatorial(numero):
     if numero < 0:
@@ -51,6 +50,4 @@ def obter_super_fatorial(numero):
     return jsonify({'numero': numero, 'super_fatorial': resultado})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
-    # We now use this syntax to server our app.
-    serve(app, host='0.0.0.0', port=6000, url_scheme='https')
+    app.run(debug=True)
